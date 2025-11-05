@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Use dynamic rendering to allow client components
-export const dynamic = 'force-dynamic';
+// Temporarily removed force-dynamic to test if it's causing the server-side error
+// export const dynamic = 'force-dynamic';
 
 // Mock active competition - replace with Supabase query
 function getActiveCompetition() {
