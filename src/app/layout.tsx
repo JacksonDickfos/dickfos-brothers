@@ -6,7 +6,23 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dickfos-brothers.vercel.app";
+// Get site URL safely - handle edge cases
+function getSiteUrl(): URL {
+  const defaultUrl = "https://dickfos-brothers.vercel.app";
+  try {
+    const urlString = process.env.NEXT_PUBLIC_SITE_URL || defaultUrl;
+    // Validate URL format
+    if (urlString && urlString.startsWith("http")) {
+      return new URL(urlString);
+    }
+    return new URL(defaultUrl);
+  } catch (error) {
+    // If URL construction fails, use default
+    return new URL(defaultUrl);
+  }
+}
+
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: {
@@ -14,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Dickfos Brothers",
   },
   description: "Two brothers. One brand. Same DNA, different decisions.",
-  metadataBase: new URL(siteUrl),
+  metadataBase: siteUrl,
 };
 
 export default function RootLayout({
