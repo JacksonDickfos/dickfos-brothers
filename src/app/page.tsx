@@ -5,26 +5,26 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 // Lazy load client components to isolate potential errors
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 
-const HeroSplit = dynamic(() => import("@/components/HeroSplit").then(m => ({ default: m.HeroSplit })), {
+const HeroSplit = nextDynamic(() => import("@/components/HeroSplit").then(m => ({ default: m.HeroSplit })), {
   ssr: true,
   loading: () => <div className="min-h-screen flex items-center justify-center bg-[#0B0B0C]" />
 });
 
-const SeriesCard = dynamic(() => import("@/components/SeriesCard").then(m => ({ default: m.SeriesCard })), {
+const SeriesCard = nextDynamic(() => import("@/components/SeriesCard").then(m => ({ default: m.SeriesCard })), {
   ssr: true,
 });
 
-const EmailCapture = dynamic(() => import("@/components/EmailCapture").then(m => ({ default: m.EmailCapture })), {
+const EmailCapture = nextDynamic(() => import("@/components/EmailCapture").then(m => ({ default: m.EmailCapture })), {
   ssr: true,
 });
 
-const SocialWall = dynamic(() => import("@/components/SocialWall").then(m => ({ default: m.SocialWall })), {
+const SocialWall = nextDynamic(() => import("@/components/SocialWall").then(m => ({ default: m.SocialWall })), {
   ssr: true,
 });
 
-const Countdown = dynamic(() => import("@/components/Countdown").then(m => ({ default: m.Countdown })), {
+const Countdown = nextDynamic(() => import("@/components/Countdown").then(m => ({ default: m.Countdown })), {
   ssr: true,
 });
 
