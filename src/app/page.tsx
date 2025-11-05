@@ -1,3 +1,4 @@
+// Backup of original page
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroSplit } from "@/components/HeroSplit";
@@ -9,9 +10,6 @@ import { series } from "@/lib/siteConfig";
 import { Metadata } from "next";
 import Link from "next/link";
 
-// Force dynamic rendering since we use client components with animations
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: "Dickfos Brothers | Same DNA, Different Decisions",
   description: "Two brothers. One brand. Same DNA, different decisions. Watch our weekly challenges, series, and competitions.",
@@ -22,6 +20,9 @@ export const metadata: Metadata = {
     url: "https://dickfos-brothers.vercel.app",
   },
 };
+
+// Use dynamic rendering to allow client components
+export const dynamic = 'force-dynamic';
 
 // Mock active competition - replace with Supabase query
 function getActiveCompetition() {
@@ -131,3 +132,4 @@ export default function HomePage() {
     </div>
   );
 }
+
