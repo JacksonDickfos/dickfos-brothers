@@ -41,8 +41,10 @@ function getActiveCompetition() {
 }
 
 export default function HomePage() {
-  const featuredSeries = series.filter((s) => s.featured);
-  const activeCompetition = getActiveCompetition();
+  // Wrap in try-catch to handle any server-side errors gracefully
+  try {
+    const featuredSeries = series.filter((s) => s.featured);
+    const activeCompetition = getActiveCompetition();
 
   // Handle case where activeCompetition might be null
   if (!activeCompetition) {
@@ -129,6 +131,22 @@ export default function HomePage() {
       </main>
       <Footer />
     </div>
-  );
+    );
+  } catch (error) {
+    // Log error for debugging but return a safe fallback UI
+    console.error("Error rendering homepage:", error);
+    return (
+      <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4 text-white">Welcome to Dickfos Brothers</h1>
+            <p className="text-[#a1a1aa]">Something went wrong. Please try again later.</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 }
 
