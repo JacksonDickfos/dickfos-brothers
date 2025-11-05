@@ -1,0 +1,149 @@
+"use client";
+
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { useState } from "react";
+import { Metadata } from "next";
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    inquiryType: "general",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "", inquiryType: "general" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
+      <Header />
+      <main className="flex-1">
+        <section className="py-16 bg-[#0B0B0C]">
+          <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-center">
+              Contact Us
+            </h1>
+            <p className="text-center text-[#a1a1aa] mb-8">
+              Have a question or want to collaborate? Get in touch!
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="inquiryType" className="block text-sm font-medium mb-2">
+                  Inquiry Type
+                </label>
+                <select
+                  id="inquiryType"
+                  value={formData.inquiryType}
+                  onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
+                  className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
+                >
+                  <option value="general">General Inquiry</option>
+                  <option value="media">Media Inquiry</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="press">Press Kit Request</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows={6}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9] resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full rounded-full bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90 disabled:opacity-50"
+              >
+                {status === "loading" ? "Sending..." : status === "success" ? "Sent!" : "Send Message"}
+              </button>
+
+              {status === "success" && (
+                <p className="text-center text-sm text-[#6EE7F9]">Thanks! We'll get back to you soon.</p>
+              )}
+              {status === "error" && (
+                <p className="text-center text-sm text-red-400">Something went wrong. Please try again.</p>
+              )}
+            </form>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+

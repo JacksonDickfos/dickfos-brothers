@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Dickfos Brothers",
-  description: "Welcome to Dickfos Brothers - Explore our series, episodes, and more.",
+  title: {
+    default: "Dickfos Brothers",
+    template: "%s | Dickfos Brothers",
+  },
+  description: "Two brothers. One brand. Same DNA, different decisions.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dickfos-brothers.vercel.app"),
 };
 
 export default function RootLayout({
@@ -23,11 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className="dark">
+      <body className={`${inter.variable} antialiased`}>
         {children}
+        <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );

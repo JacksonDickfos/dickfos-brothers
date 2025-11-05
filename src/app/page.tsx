@@ -1,95 +1,115 @@
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { HeroSplit } from "@/components/HeroSplit";
+import { SeriesCard } from "@/components/SeriesCard";
+import { EmailCapture } from "@/components/EmailCapture";
+import { SocialWall } from "@/components/SocialWall";
+import { Countdown } from "@/components/Countdown";
+import { series } from "@/lib/siteConfig";
+import { Metadata } from "next";
 import Link from "next/link";
-import { SITE } from "@/lib/siteConfig";
 
-// Ensure this is a server component
-export const dynamic = 'force-static';
+// Force dynamic rendering since we use client components with animations
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: "Dickfos Brothers | Same DNA, Different Decisions",
+  description: "Two brothers. One brand. Same DNA, different decisions. Watch our weekly challenges, series, and competitions.",
+  openGraph: {
+    title: "Dickfos Brothers",
+    description: "Same DNA, Different Decisions",
+    type: "website",
+    url: "https://dickfos-brothers.vercel.app",
+  },
+};
+
+// Mock active competition - replace with Supabase query
+const getActiveCompetition = () => {
+  return {
+    slug: "weekly-challenge-1",
+    title: "This Week's Challenge",
+    summary: "Show us your best interpretation of our latest challenge theme. The winner gets a $500 gift card!",
+    prize: "$500 gift card",
+    endsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
+    isActive: true,
+  };
+};
 
 export default function HomePage() {
+  const featuredSeries = series.filter((s) => s.featured);
+  const activeCompetition = getActiveCompetition();
+
   return (
-    <div className="flex min-h-screen flex-col bg-white dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
+      <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative flex min-h-screen items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl font-bold tracking-tight text-black dark:text-white sm:text-6xl md:text-7xl">
-              {SITE.name}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400 sm:text-xl">
-              Welcome to our home. Explore our series, episodes, and more.
+        <HeroSplit />
+
+        {/* Featured Series Carousel */}
+        <section className="py-16 bg-[#0B0B0C]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-4 text-center">
+              Featured Series
+            </h2>
+            <p className="text-center text-[#a1a1aa] mb-12 max-w-2xl mx-auto">
+              Explore our signature content series where we test the limits of shared DNA and different minds.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredSeries.map((s) => (
+                <SeriesCard key={s.slug} {...s} />
+              ))}
+            </div>
+            <div className="text-center mt-8">
               <Link
                 href="/series"
-                className="rounded-full bg-black px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                className="inline-flex items-center text-[#6EE7F9] font-semibold hover:text-[#6EE7F9]/80 transition-colors"
               >
-                View Series
-              </Link>
-              <Link
-                href="/about"
-                className="text-base font-semibold leading-6 text-zinc-900 dark:text-zinc-100"
-              >
-                Learn more <span aria-hidden="true">→</span>
+                View All Series →
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Features/Content Sections */}
-        <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-              What We Offer
-            </h2>
-            <p className="mt-2 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-              Discover our content and engage with our community.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <div className="flex flex-col rounded-2xl bg-zinc-50 p-8 dark:bg-zinc-900">
-              <h3 className="text-xl font-semibold text-black dark:text-white">
-                Series
-              </h3>
-              <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-                Browse our collection of series and discover new content.
-              </p>
-              <Link
-                href="/series"
-                className="mt-6 text-sm font-semibold leading-6 text-black dark:text-white"
-              >
-                Explore → <span aria-hidden="true"></span>
-              </Link>
+        {/* This Week's Challenge */}
+        {activeCompetition && (
+          <section className="py-16 bg-[#111215]">
+            <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+              <div className="rounded-2xl bg-[#0B0B0C] border border-[#1A1B1F] p-8">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <h2 className="font-heading text-2xl md:text-3xl font-bold">This Week's Challenge</h2>
+                      <span className="rounded-full bg-[#A78BFA] px-3 py-1 text-xs font-semibold">
+                        Active
+                      </span>
+                    </div>
+                    <p className="text-[#a1a1aa] mb-4">{activeCompetition.summary}</p>
+                    <p className="text-sm font-semibold text-[#6EE7F9]">Prize: {activeCompetition.prize}</p>
+                  </div>
+                </div>
+                <div className="mb-6">
+                  <p className="text-sm text-[#a1a1aa] mb-3">Ends in:</p>
+                  <Countdown endDate={activeCompetition.endsAt} />
+                </div>
+                <Link
+                  href={`/competitions/${activeCompetition.slug}`}
+                  className="inline-flex items-center rounded-full bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90"
+                >
+                  Join this week's challenge →
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-col rounded-2xl bg-zinc-50 p-8 dark:bg-zinc-900">
-              <h3 className="text-xl font-semibold text-black dark:text-white">
-                Episodes
-              </h3>
-              <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-                Watch our latest episodes and catch up on what you missed.
-              </p>
-              <Link
-                href="/episodes"
-                className="mt-6 text-sm font-semibold leading-6 text-black dark:text-white"
-              >
-                Watch Now → <span aria-hidden="true"></span>
-              </Link>
-            </div>
-            <div className="flex flex-col rounded-2xl bg-zinc-50 p-8 dark:bg-zinc-900">
-              <h3 className="text-xl font-semibold text-black dark:text-white">
-                Newsletter
-              </h3>
-              <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-                Stay updated with our latest news and announcements.
-              </p>
-              <Link
-                href="/newsletter"
-                className="mt-6 text-sm font-semibold leading-6 text-black dark:text-white"
-              >
-                Subscribe → <span aria-hidden="true"></span>
-              </Link>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Social Pipes - Instagram & TikTok */}
+        <SocialWall mode="static" />
+
+        {/* Email Capture */}
+        <EmailCapture />
       </main>
+      <Footer />
     </div>
   );
 }
