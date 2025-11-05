@@ -2,7 +2,9 @@ export const SITE = {
   name: "Dickfos Brothers",
   parentCompany: "Resemblance",
   tagline: "Two brothers. One brand. Same DNA, different decisions.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://dickfos-brothers.vercel.app",
+  url: typeof window !== "undefined" 
+    ? (process.env.NEXT_PUBLIC_SITE_URL || window.location.origin)
+    : (process.env.NEXT_PUBLIC_SITE_URL || "https://dickfos-brothers.vercel.app"),
   instagram: "https://instagram.com/dickfosbrothers",
   tiktok: "https://tiktok.com/@dickfosbrothers",
   email: "hello@resemblance.studio",
