@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+// Ensure this is a server component
+export const dynamic = 'force-static';
+
 export default function HomePage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">

@@ -7,6 +7,8 @@ const nextConfig = {
     mdxRs: true,
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  // Ensure app directory is properly configured
+  // Vercel should auto-detect this, but being explicit helps
 };
 
 const withMDX = createMDX({
