@@ -1,4 +1,3 @@
-// Backup of original page
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroSplit } from "@/components/HeroSplit";
@@ -21,8 +20,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Temporarily removed force-dynamic to test if it's causing the server-side error
-// export const dynamic = 'force-dynamic';
+// Force dynamic rendering to prevent static generation issues with framer-motion client components
+export const dynamic = 'force-dynamic';
 
 // Mock active competition - replace with Supabase query
 function getActiveCompetition() {
