@@ -1,13 +1,22 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 // Only create client if URL and key are provided (for client-side usage)
-// Use a dummy URL/key if not provided to prevent Supabase from throwing errors
-export const supabase = supabaseUrl && supabaseAnonKey
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : createClient("https://placeholder.supabase.co", "placeholder-key");
+// Return a mock client that won't be used if credentials are missing
+let supabaseClient: SupabaseClient | null = null;
+
+try {
+  if (supabaseUrl && supabaseAnonKey) {
+    supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
+  }
+} catch (error) {
+  console.warn("Failed to initialize Supabase client:", error);
+  supabaseClient = null;
+}
+
+export const supabase = supabaseClient;
 
 // Server-side client with service role key
 export function getSupabaseAdmin() {
