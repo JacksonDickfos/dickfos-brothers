@@ -24,20 +24,40 @@ export const metadata: Metadata = {
 };
 
 // Mock active competition - replace with Supabase query
-const getActiveCompetition = () => {
-  return {
-    slug: "weekly-challenge-1",
-    title: "This Week's Challenge",
-    summary: "Show us your best interpretation of our latest challenge theme. The winner gets a $500 gift card!",
-    prize: "$500 gift card",
-    endsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
-    isActive: true,
-  };
-};
+function getActiveCompetition() {
+  try {
+    return {
+      slug: "weekly-challenge-1",
+      title: "This Week's Challenge",
+      summary: "Show us your best interpretation of our latest challenge theme. The winner gets a $500 gift card!",
+      prize: "$500 gift card",
+      endsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
+      isActive: true,
+    };
+  } catch (error) {
+    console.error("Error getting active competition:", error);
+    return null;
+  }
+}
 
 export default function HomePage() {
   const featuredSeries = series.filter((s) => s.featured);
   const activeCompetition = getActiveCompetition();
+
+  // Handle case where activeCompetition might be null
+  if (!activeCompetition) {
+    return (
+      <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Loading...</h1>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
