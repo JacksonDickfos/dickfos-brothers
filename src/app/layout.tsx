@@ -6,13 +6,15 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dickfos-brothers.vercel.app";
+
 export const metadata: Metadata = {
   title: {
     default: "Dickfos Brothers",
     template: "%s | Dickfos Brothers",
   },
   description: "Two brothers. One brand. Same DNA, different decisions.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dickfos-brothers.vercel.app"),
+  metadataBase: new URL(siteUrl),
 };
 
 export default function RootLayout({

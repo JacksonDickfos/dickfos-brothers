@@ -72,36 +72,34 @@ export default function HomePage() {
         </section>
 
         {/* This Week's Challenge */}
-        {activeCompetition && (
-          <section className="py-16 bg-[#111215]">
-            <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-              <div className="rounded-2xl bg-[#0B0B0C] border border-[#1A1B1F] p-8">
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <h2 className="font-heading text-2xl md:text-3xl font-bold">This Week's Challenge</h2>
-                      <span className="rounded-full bg-[#A78BFA] px-3 py-1 text-xs font-semibold">
-                        Active
-                      </span>
-                    </div>
-                    <p className="text-[#a1a1aa] mb-4">{activeCompetition.summary}</p>
-                    <p className="text-sm font-semibold text-[#6EE7F9]">Prize: {activeCompetition.prize}</p>
+        <section className="py-16 bg-[#111215]">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl bg-[#0B0B0C] border border-[#1A1B1F] p-8">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <h2 className="font-heading text-2xl md:text-3xl font-bold">This Week's Challenge</h2>
+                    <span className="rounded-full bg-[#A78BFA] px-3 py-1 text-xs font-semibold">
+                      Active
+                    </span>
                   </div>
+                  <p className="text-[#a1a1aa] mb-4">{activeCompetition.summary}</p>
+                  <p className="text-sm font-semibold text-[#6EE7F9]">Prize: {activeCompetition.prize}</p>
                 </div>
-                <div className="mb-6">
-                  <p className="text-sm text-[#a1a1aa] mb-3">Ends in:</p>
-                  <Countdown endDate={activeCompetition.endsAt} />
-                </div>
-                <Link
-                  href={`/competitions/${activeCompetition.slug}`}
-                  className="inline-flex items-center rounded-full bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90"
-                >
-                  Join this week's challenge →
-                </Link>
               </div>
+              <div className="mb-6">
+                <p className="text-sm text-[#a1a1aa] mb-3">Ends in:</p>
+                <Countdown endDate={activeCompetition.endsAt} />
+              </div>
+              <Link
+                href={`/competitions/${activeCompetition.slug}`}
+                className="inline-flex items-center rounded-full bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90"
+              >
+                Join this week's challenge →
+              </Link>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* Social Pipes - Instagram & TikTok */}
         <SocialWall mode="static" />
