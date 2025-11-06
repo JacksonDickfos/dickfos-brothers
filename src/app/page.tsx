@@ -1,13 +1,30 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroSplit } from "@/components/HeroSplit";
-import { SeriesCard } from "@/components/SeriesCard";
-import { EmailCapture } from "@/components/EmailCapture";
-import { SocialWall } from "@/components/SocialWall";
-import { Countdown } from "@/components/Countdown";
 import { series } from "@/lib/siteConfig";
 import { Metadata } from "next";
 import Link from "next/link";
+import nextDynamic from "next/dynamic";
+
+// Use dynamic imports for client components (same pattern as series page)
+const HeroSplit = nextDynamic(() => import("@/components/HeroSplit").then(m => ({ default: m.HeroSplit })), {
+  ssr: true,
+});
+
+const SeriesCard = nextDynamic(() => import("@/components/SeriesCard").then(m => ({ default: m.SeriesCard })), {
+  ssr: true,
+});
+
+const EmailCapture = nextDynamic(() => import("@/components/EmailCapture").then(m => ({ default: m.EmailCapture })), {
+  ssr: true,
+});
+
+const SocialWall = nextDynamic(() => import("@/components/SocialWall").then(m => ({ default: m.SocialWall })), {
+  ssr: true,
+});
+
+const Countdown = nextDynamic(() => import("@/components/Countdown").then(m => ({ default: m.Countdown })), {
+  ssr: true,
+});
 
 export const metadata: Metadata = {
   title: "Dickfos Brothers | Same DNA, Different Decisions",
