@@ -41,7 +41,8 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
+// Use auto static optimization - components will render client-side
+// export const dynamic = 'force-dynamic';
 
 // Mock active competition - replace with Supabase query
 function getActiveCompetition() {
