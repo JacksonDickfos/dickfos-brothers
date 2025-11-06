@@ -1,8 +1,13 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SeriesCard } from "@/components/SeriesCard";
 import { series } from "@/lib/siteConfig";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+// Dynamically import SeriesCard to avoid framer-motion server-side errors
+const SeriesCard = dynamic(() => import("@/components/SeriesCard").then(m => ({ default: m.SeriesCard })), {
+  ssr: true,
+});
 
 export const dynamic = 'force-dynamic';
 
