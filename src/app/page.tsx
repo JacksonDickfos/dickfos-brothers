@@ -3,28 +3,31 @@ import { Footer } from "@/components/Footer";
 import { series } from "@/lib/siteConfig";
 import { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import nextDynamic from "next/dynamic";
 
-// Dynamically import client components to avoid server-side errors
+// Dynamically import client components with SSR disabled to avoid server-side errors
 const HeroSplit = nextDynamic(() => import("@/components/HeroSplit").then(m => ({ default: m.HeroSplit })), {
-  ssr: true,
+  ssr: false,
   loading: () => <div className="min-h-screen flex items-center justify-center bg-[#0B0B0C]" />
 });
 
 const SeriesCard = nextDynamic(() => import("@/components/SeriesCard").then(m => ({ default: m.SeriesCard })), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="rounded-2xl bg-[#111215] border border-[#1A1B1F] h-64 animate-pulse" />
 });
 
 const EmailCapture = nextDynamic(() => import("@/components/EmailCapture").then(m => ({ default: m.EmailCapture })), {
-  ssr: true,
+  ssr: false,
 });
 
 const SocialWall = nextDynamic(() => import("@/components/SocialWall").then(m => ({ default: m.SocialWall })), {
-  ssr: true,
+  ssr: false,
 });
 
 const Countdown = nextDynamic(() => import("@/components/Countdown").then(m => ({ default: m.Countdown })), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="text-[#a1a1aa]">Loading countdown...</div>
 });
 
 export const metadata: Metadata = {
@@ -58,30 +61,32 @@ function getActiveCompetition() {
 }
 
 export default function HomePage() {
-  try {
-    const featuredSeries = series.filter((s) => s.featured);
-    const activeCompetition = getActiveCompetition();
+  // Filter series on server - this should be safe
+  const featuredSeries = series.filter((s) => s.featured);
+  const activeCompetition = getActiveCompetition();
 
-    if (!activeCompetition) {
-      return (
-        <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
-          <Header />
-          <main className="flex-1 flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold mb-4">Loading...</h1>
-            </div>
-          </main>
-          <Footer />
-        </div>
-      );
-    }
-
+  if (!activeCompetition) {
     return (
       <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
         <Header />
-        <main className="flex-1">
-          {/* Hero Section */}
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Loading...</h1>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
+      <Header />
+      <main className="flex-1">
+        {/* Hero Section */}
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#0B0B0C]" />}>
           <HeroSplit />
+        </Suspense>
 
           {/* Featured Series Carousel */}
           <section className="py-16 bg-[#0B0B0C]">
@@ -94,7 +99,9 @@ export default function HomePage() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredSeries.map((s) => (
-                  <SeriesCard key={s.slug} {...s} />
+                  <Suspense key={s.slug} fallback={<div className="rounded-2xl bg-[#111215] border border-[#1A1B1F] h-64 animate-pulse" />}>
+                    <SeriesCard {...s} />
+                  </Suspense>
                 ))}
               </div>
               <div className="text-center mt-8">
@@ -126,7 +133,9 @@ export default function HomePage() {
                 </div>
                 <div className="mb-6">
                   <p className="text-sm text-[#a1a1aa] mb-3">Ends in:</p>
-                  <Countdown endDate={activeCompetition.endsAt} />
+                  <Suspense fallback={<div className="text-[#a1a1aa]">Loading countdown...</div>}>
+                    <Countdown endDate={activeCompetition.endsAt} />
+                  </Suspense>
                 </div>
                 <Link
                   href={`/competitions/${activeCompetition.slug}`}
@@ -139,27 +148,16 @@ export default function HomePage() {
           </section>
 
           {/* Social Pipes - Instagram & TikTok */}
-          <SocialWall mode="static" />
+          <Suspense fallback={<div className="py-16 bg-[#0B0B0C]" />}>
+            <SocialWall mode="static" />
+          </Suspense>
 
           {/* Email Capture */}
-          <EmailCapture />
+          <Suspense fallback={<div className="py-16 bg-[#0B0B0C]" />}>
+            <EmailCapture />
+          </Suspense>
         </main>
         <Footer />
       </div>
     );
-  } catch (error) {
-    console.error("Error rendering homepage:", error);
-    return (
-      <div className="flex min-h-screen flex-col bg-[#0B0B0C]">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4 text-white">Welcome to Dickfos Brothers</h1>
-            <p className="text-[#a1a1aa]">Something went wrong. Please try again later.</p>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
 }
