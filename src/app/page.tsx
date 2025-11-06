@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Don't use force-dynamic - let Next.js handle it automatically
-// This allows client components to work properly
+// Force dynamic rendering - prevents static generation which fails with framer-motion
+export const dynamic = 'force-dynamic';
 
 // Mock active competition - replace with Supabase query
 function getActiveCompetition() {
