@@ -33,7 +33,7 @@ export default function HomePage() {
                 <div className="rounded-full bg-[#0B0B0C] p-[3px]">
                   <div className="relative h-64 w-64 rounded-full overflow-hidden bg-[#111215]">
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logo.jpeg"
                       alt="Dickfos Brothers"
                       width={256}
                       height={256}
