@@ -39,6 +39,7 @@ export default function HomePage() {
                       height={256}
                       className="object-cover rounded-full w-full h-full"
                       priority
+                      unoptimized
                     />
                   </div>
                 </div>
