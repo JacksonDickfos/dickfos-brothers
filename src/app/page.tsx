@@ -24,11 +24,13 @@ export default function HomePage() {
           <div className="flex flex-col items-center">
             {/* Circular Logo with Gradient Border */}
             <div className="relative mb-8">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-red-500 to-blue-500 p-1 animate-pulse" style={{
-                background: 'linear-gradient(135deg, #A78BFA 0%, #EF4444 50%, #3B82F6 100%)',
-                animation: 'none'
-              }}>
-                <div className="rounded-full bg-[#0B0B0C] p-1">
+              <div 
+                className="rounded-full p-[3px]"
+                style={{
+                  background: 'linear-gradient(135deg, #A78BFA 0%, #EF4444 50%, #3B82F6 100%)',
+                }}
+              >
+                <div className="rounded-full bg-[#0B0B0C] p-[2px]">
                   <div className="relative h-64 w-64 rounded-full overflow-hidden">
                     <Image
                       src="/images/logo.jpg"
