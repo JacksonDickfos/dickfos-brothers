@@ -32,14 +32,12 @@ export default function HomePage() {
               >
                 <div className="rounded-full bg-[#0B0B0C] p-[3px]">
                   <div className="relative h-64 w-64 rounded-full overflow-hidden bg-[#111215]">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src="/images/logo.jpg"
                       alt="Dickfos Brothers"
-                      width={256}
-                      height={256}
                       className="object-cover rounded-full w-full h-full"
-                      priority
-                      unoptimized={true}
+                      style={{ width: '100%', height: '100%' }}
                     />
                   </div>
                 </div>
