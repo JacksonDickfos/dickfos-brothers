@@ -37,9 +37,9 @@ export default function HomePage() {
                       alt="Dickfos Brothers"
                       width={256}
                       height={256}
-                      className="object-cover rounded-full"
+                      className="object-cover rounded-full w-full h-full"
                       priority
-                      unoptimized
+                      unoptimized={true}
                     />
                   </div>
                 </div>
