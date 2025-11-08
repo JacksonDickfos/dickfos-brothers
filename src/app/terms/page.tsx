@@ -33,7 +33,7 @@ export default function TermsPage() {
               <div>
                 <h2 className="font-heading text-2xl font-semibold mb-4 text-white">Content</h2>
                 <p>
-                  All content on this site is the property of Resemblance and Dickfos Brothers. 
+                  All content on this site is the property of Dickfos Brothers. 
                   Unauthorized use is prohibited.
                 </p>
               </div>

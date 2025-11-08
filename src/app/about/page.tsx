@@ -28,8 +28,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <p className="text-[#a1a1aa] leading-relaxed mb-6">
-                Born from the parent company Resemblance, Dickfos Brothers is our public-facing 
-                persona where we share our weekly challenges, experiments, and the hilarious 
+                Dickfos Brothers is where we share our weekly challenges, experiments, and the hilarious 
                 differences that emerge from our shared foundation.
               </p>
               <p className="text-[#a1a1aa] leading-relaxed">

@@ -22,10 +22,9 @@ export default function PressPage() {
               <div>
                 <h2 className="font-heading text-2xl font-semibold mb-4">Bio</h2>
                 <p className="text-[#a1a1aa] leading-relaxed">
-                  Dickfos Brothers is a public personality brand under Resemblance, featuring two 
-                  brothers with identical DNA but contrasting personalities. Through weekly challenges, 
-                  experiments, and competitions, we explore the differences and similarities that 
-                  emerge from our shared foundation.
+                  Dickfos Brothers features two brothers with identical DNA but contrasting personalities. 
+                  Through weekly challenges, experiments, and competitions, we explore the differences and 
+                  similarities that emerge from our shared foundation.
                 </p>
               </div>
 
@@ -33,7 +32,7 @@ export default function PressPage() {
               <div>
                 <h2 className="font-heading text-2xl font-semibold mb-4">Fast Facts</h2>
                 <ul className="space-y-2 text-[#a1a1aa]">
-                  <li>• Parent Company: {SITE.parentCompany}</li>
+                  <li>• Brand: {SITE.name}</li>
                   <li>• Tagline: {SITE.tagline}</li>
                   <li>• Instagram: {SITE.social.instagram}</li>
                   <li>• TikTok: {SITE.social.tiktok}</li>
@@ -70,8 +69,8 @@ export default function PressPage() {
                 <h2 className="font-heading text-2xl font-semibold mb-4">Media Inquiries</h2>
                 <p className="text-[#a1a1aa] mb-4">
                   For media inquiries, please contact us at{" "}
-                  <a href="mailto:hello@resemblance.studio" className="text-[#6EE7F9] hover:underline">
-                    hello@resemblance.studio
+                  <a href={`mailto:${SITE.email}`} className="text-[#6EE7F9] hover:underline">
+                    {SITE.email}
                   </a>
                   .
                 </p>

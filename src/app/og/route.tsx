@@ -19,7 +19,7 @@ export async function GET(request: Request) {
           padding: '64px',
         }}
       >
-        <div style={{ fontSize: 28, color: '#A78BFA', marginBottom: 12 }}>Resemblance • Dickfos Brothers</div>
+        <div style={{ fontSize: 28, color: '#A78BFA', marginBottom: 12 }}>Dickfos Brothers</div>
         <div style={{ fontSize: 68, fontWeight: 700, lineHeight: 1.1 }}>{title}</div>
       </div>
     ),
