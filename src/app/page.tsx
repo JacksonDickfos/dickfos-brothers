@@ -25,19 +25,21 @@ export default function HomePage() {
             {/* Circular Logo with Gradient Border */}
             <div className="relative mb-8">
               <div 
-                className="rounded-full p-[3px]"
+                className="rounded-full p-[4px]"
                 style={{
                   background: 'linear-gradient(135deg, #A78BFA 0%, #EF4444 50%, #3B82F6 100%)',
                 }}
               >
-                <div className="rounded-full bg-[#0B0B0C] p-[2px]">
-                  <div className="relative h-64 w-64 rounded-full overflow-hidden">
+                <div className="rounded-full bg-[#0B0B0C] p-[3px]">
+                  <div className="relative h-64 w-64 rounded-full overflow-hidden bg-[#111215]">
                     <Image
                       src="/images/logo.jpg"
                       alt="Dickfos Brothers"
-                      fill
-                      className="object-cover"
+                      width={256}
+                      height={256}
+                      className="object-cover rounded-full"
                       priority
+                      unoptimized
                     />
                   </div>
                 </div>
