@@ -3,14 +3,9 @@ import { Footer } from "@/components/Footer";
 import { EmailCapture } from "@/components/EmailCapture";
 import { SocialWall } from "@/components/SocialWall";
 import { Countdown } from "@/components/Countdown";
+import { ContactForm } from "@/components/ContactForm";
 import { Metadata } from "next";
 import Image from "next/image";
-import nextDynamic from "next/dynamic";
-
-// Dynamically import client components
-const ContactForm = nextDynamic(() => import("@/components/ContactForm").then(m => ({ default: m.ContactForm })), {
-  ssr: true,
-});
 
 export const metadata: Metadata = {
   title: "Dickfos Brothers | Same DNA, Different Decisions",

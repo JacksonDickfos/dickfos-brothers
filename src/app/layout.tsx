@@ -32,8 +32,12 @@ export const metadata: Metadata = {
   description: "Two brothers. One brand. Same DNA, different decisions.",
   metadataBase: siteUrl,
   icons: {
-    icon: "/images/logo.jpeg",
+    icon: [
+      { url: "/images/logo.jpeg", sizes: "any" },
+      { url: "/images/logo.jpeg", type: "image/jpeg" },
+    ],
     apple: "/images/logo.jpeg",
+    shortcut: "/images/logo.jpeg",
   },
 };
 
