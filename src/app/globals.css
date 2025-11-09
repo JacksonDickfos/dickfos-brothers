@@ -62,6 +62,32 @@ h1, h2, h3, h4, h5, h6 {
       scroll-behavior: smooth;
     }
 
+    /* Logo border animations */
+    @keyframes rotate-border {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse-border {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.85;
+        transform: scale(1.03);
+      }
+    }
+
+    .logo-gradient-border {
+      background: conic-gradient(from 0deg, #A78BFA 0deg, #EF4444 120deg, #3B82F6 240deg, #A78BFA 360deg);
+      animation: rotate-border 4s linear infinite, pulse-border 2s ease-in-out infinite;
+    }
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *,
@@ -73,5 +99,8 @@ h1, h2, h3, h4, h5, h6 {
       }
       html {
         scroll-behavior: auto;
+      }
+      .logo-gradient-border {
+        animation: none !important;
       }
     }

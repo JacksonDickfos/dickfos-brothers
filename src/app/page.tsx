@@ -42,19 +42,14 @@ export default function HomePage() {
           <div className="flex flex-col items-center">
             {/* Circular Logo with Gradient Border */}
             <div className="relative mb-8">
-              <div 
-                className="rounded-full p-[4px]"
-                style={{
-                  background: 'linear-gradient(135deg, #A78BFA 0%, #EF4444 50%, #3B82F6 100%)',
-                }}
-              >
-                <div className="rounded-full bg-[#0B0B0C] p-[3px]">
-                  <div className="relative h-64 w-64 rounded-full overflow-hidden bg-[#111215]">
+              <div className="logo-gradient-border rounded-full p-[6px]">
+                <div className="rounded-full bg-[#0B0B0C] p-[4px]">
+                  <div className="relative h-[512px] w-[512px] rounded-full overflow-hidden bg-[#111215]">
                     <Image
                       src="/images/logo.jpeg"
                       alt="Dickfos Brothers"
-                      width={256}
-                      height={256}
+                      width={512}
+                      height={512}
                       className="object-cover rounded-full w-full h-full"
                       priority
                       unoptimized
