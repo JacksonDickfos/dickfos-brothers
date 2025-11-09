@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   },
   description: "Two brothers. One brand. Same DNA, different decisions.",
   metadataBase: siteUrl,
+  icons: {
+    icon: "/images/logo.jpeg",
+    apple: "/images/logo.jpeg",
+  },
 };
 
 export default function RootLayout({

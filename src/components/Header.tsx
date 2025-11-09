@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,23 +7,55 @@ import { motion, AnimatePresence } from "framer-motion";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#1A1B1F] bg-[#0B0B0C]/80 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
         {/* Desktop Navigation - Centered */}
         <div className="hidden items-center gap-8 md:flex">
-          <Link href="/competitions" className="text-sm font-medium transition-colors hover:text-[#6EE7F9]">
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
+            Home
+          </a>
+          <a
+            href="#competitions"
+            onClick={(e) => handleNavClick(e, "#competitions")}
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
             Competitions
-          </Link>
-          <Link href="/gallery" className="text-sm font-medium transition-colors hover:text-[#6EE7F9]">
+          </a>
+          <a
+            href="#gallery"
+            onClick={(e) => handleNavClick(e, "#gallery")}
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
             Gallery
-          </Link>
-          <Link href="/newsletter" className="text-sm font-medium transition-colors hover:text-[#6EE7F9]">
+          </a>
+          <a
+            href="#newsletter"
+            onClick={(e) => handleNavClick(e, "#newsletter")}
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
             Newsletter
-          </Link>
-          <Link href="/contact" className="text-sm font-medium transition-colors hover:text-[#6EE7F9]">
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "#contact")}
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
             Contact
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -47,18 +78,41 @@ export function Header() {
             className="border-t border-[#1A1B1F] bg-[#0B0B0C] md:hidden"
           >
             <div className="flex flex-col gap-4 px-4 py-6">
-              <Link href="/competitions" className="text-sm font-medium" onClick={() => setIsOpen(false)}>
+              <a
+                href="#home"
+                onClick={(e) => handleNavClick(e, "#home")}
+                className="text-sm font-medium"
+              >
+                Home
+              </a>
+              <a
+                href="#competitions"
+                onClick={(e) => handleNavClick(e, "#competitions")}
+                className="text-sm font-medium"
+              >
                 Competitions
-              </Link>
-              <Link href="/gallery" className="text-sm font-medium" onClick={() => setIsOpen(false)}>
+              </a>
+              <a
+                href="#gallery"
+                onClick={(e) => handleNavClick(e, "#gallery")}
+                className="text-sm font-medium"
+              >
                 Gallery
-              </Link>
-              <Link href="/newsletter" className="text-sm font-medium" onClick={() => setIsOpen(false)}>
+              </a>
+              <a
+                href="#newsletter"
+                onClick={(e) => handleNavClick(e, "#newsletter")}
+                className="text-sm font-medium"
+              >
                 Newsletter
-              </Link>
-              <Link href="/contact" className="text-sm font-medium" onClick={() => setIsOpen(false)}>
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className="text-sm font-medium"
+              >
                 Contact
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
