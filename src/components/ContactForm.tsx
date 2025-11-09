@@ -4,11 +4,9 @@ import { useState } from "react";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    subject: "",
     message: "",
-    inquiryType: "general",
+    inquiryType: "sponsorship",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -25,7 +23,7 @@ export function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "", inquiryType: "general" });
+        setFormData({ email: "", message: "", inquiryType: "sponsorship" });
       } else {
         setStatus("error");
       }
@@ -46,25 +44,10 @@ export function ContactForm() {
           onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
           className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
         >
-          <option value="general">General Inquiry</option>
-          <option value="media">Media Inquiry</option>
+          <option value="sponsorship">Sponsorship</option>
           <option value="collaboration">Collaboration</option>
-          <option value="press">Press Kit Request</option>
+          <option value="media">Media Request</option>
         </select>
-      </div>
-
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2">
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          required
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
-        />
       </div>
 
       <div>
@@ -77,20 +60,6 @@ export function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="subject" className="block text-sm font-medium mb-2">
-          Subject
-        </label>
-        <input
-          type="text"
-          id="subject"
-          required
-          value={formData.subject}
-          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
           className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
         />
       </div>

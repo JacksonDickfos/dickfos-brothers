@@ -3,11 +3,9 @@ import { z } from "zod";
 import { Resend } from "resend";
 
 const contactSchema = z.object({
-  name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
-  subject: z.string().min(1, "Subject is required"),
   message: z.string().min(1, "Message is required"),
-  inquiryType: z.enum(["general", "media", "collaboration", "press"]),
+  inquiryType: z.enum(["sponsorship", "collaboration", "media"]),
 });
 
 const getResend = () => {
@@ -33,13 +31,11 @@ export async function POST(request: NextRequest) {
       await resend.emails.send({
         from: "contact@dickfos-brothers.com",
         to: process.env.CONTACT_EMAIL || "hello@resemblance.studio",
-        subject: `[${data.inquiryType}] ${data.subject}`,
+        subject: `[${data.inquiryType}] Contact Form Submission`,
         html: `
           <h2>New Contact Form Submission</h2>
           <p><strong>Type:</strong> ${data.inquiryType}</p>
-          <p><strong>Name:</strong> ${data.name}</p>
           <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Subject:</strong> ${data.subject}</p>
           <p><strong>Message:</strong></p>
           <p>${data.message.replace(/\n/g, "<br>")}</p>
         `,
