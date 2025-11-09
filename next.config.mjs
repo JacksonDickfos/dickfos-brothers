@@ -11,6 +11,10 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     unoptimized: false,
   },
+  // Disable Turbopack for production builds to avoid dependency tracking issues
+  webpack: (config, { isServer }) => {
+    return config;
+  },
 };
 
 const withMDX = createMDX({
