@@ -31,10 +31,6 @@ export const metadata: Metadata = {
   },
   description: "Two brothers. One brand. Brothers who look nothing alike.",
   metadataBase: siteUrl,
-  icons: {
-    icon: "/images/logo.jpeg",
-    apple: "/images/logo.jpeg",
-  },
 };
 
 export default function RootLayout({
