@@ -8,11 +8,11 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Dickfos Brothers | Same DNA, Different Decisions",
-  description: "Two brothers. One brand. Same DNA, different decisions.",
+  title: "Dickfos Brothers | Brothers who look nothing alike",
+  description: "Two brothers. One brand. Brothers who look nothing alike.",
   openGraph: {
     title: "Dickfos Brothers",
-    description: "Same DNA, Different Decisions",
+    description: "Brothers who look nothing alike 🙋🏾‍♂️🙆🏼‍♂️",
     type: "website",
     url: "https://dickfos-brothers.vercel.app",
   },
@@ -69,7 +69,7 @@ export default function HomePage() {
               Dickfos Brothers
             </h1>
             <p className="text-xl text-[#a1a1aa] text-center max-w-2xl">
-              Same DNA, Different Decisions
+              Brothers who look nothing alike 🙋🏾‍♂️🙆🏼‍♂️
             </p>
           </div>
         </section>

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: "Dickfos Brothers",
     template: "%s | Dickfos Brothers",
   },
-  description: "Two brothers. One brand. Same DNA, different decisions.",
+  description: "Two brothers. One brand. Brothers who look nothing alike.",
   metadataBase: siteUrl,
   icons: {
     icon: "/images/logo.jpeg",
