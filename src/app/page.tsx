@@ -123,11 +123,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Newsletter Section */}
-        <section id="newsletter" className="scroll-mt-20">
-          <EmailCapture />
-        </section>
-
         {/* Contact Section */}
         <section id="contact" className="py-16 bg-[#0B0B0C] scroll-mt-20">
           <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
