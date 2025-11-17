@@ -88,6 +88,63 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Work With Us Section */}
+        <section id="work" className="py-16 bg-[#0B0B0C] scroll-mt-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-3">Work With Us</p>
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
+                Work With Us
+              </h2>
+              <p className="text-lg text-[#c3c3d1]">
+                Let's build something together
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  emoji: "💼",
+                  title: "Consulting",
+                  description: "Business strategy, tech solutions, and fitness expertise",
+                },
+                {
+                  emoji: "🤝",
+                  title: "Partnerships",
+                  description: "Brand collaborations and strategic alliances",
+                },
+                {
+                  emoji: "🎤",
+                  title: "Speaking",
+                  description: "Media appearances and event engagements",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center"
+                >
+                  <div className="text-4xl mb-6">{item.emoji}</div>
+                  <h3 className="text-2xl font-heading font-semibold text-white mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#c3c3d1]">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-[#0B0B0C] font-semibold text-lg transition-all hover:bg-white/90"
+              >
+                Collaborate with the Brothers
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Social Wall Section */}
         <section id="social" className="py-16 bg-[#111215] scroll-mt-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
