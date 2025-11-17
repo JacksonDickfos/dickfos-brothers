@@ -55,10 +55,10 @@ export default function HomePage() {
 
         {/* About Section */}
         <section id="about" className="py-16 bg-[#0B0B0C] scroll-mt-20">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-end md:text-right">
-                <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none">
+                <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none md:whitespace-nowrap">
                   Physio • Performance • Health • Lifestyle
                 </p>
                 <h3 className="text-3xl font-heading font-bold text-white mb-4">Corb</h3>
@@ -67,7 +67,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-start md:text-left">
-                <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none">
+                <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none md:whitespace-nowrap">
                   Private Equity • Business Strategy • Tech • Finance
                 </p>
                 <h3 className="text-3xl font-heading font-bold text-white mb-4">Jack</h3>
