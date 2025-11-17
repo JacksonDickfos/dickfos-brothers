@@ -14,6 +14,7 @@ interface SocialPost {
 interface SocialWallProps {
   posts?: SocialPost[];
   mode?: "static" | "server" | "embed";
+  showOnly?: "instagram" | "tiktok";
 }
 
 // Mock data for development
@@ -33,10 +34,13 @@ const mockTikTokPosts: SocialPost[] = Array.from({ length: 6 }, (_, i) => ({
   caption: `TikTok video ${i + 1}`,
 }));
 
-export function SocialWall({ posts, mode = "static" }: SocialWallProps) {
+export function SocialWall({ posts, mode = "static", showOnly }: SocialWallProps) {
   // Use mock data if no posts provided
   const instagramPosts = posts?.filter((p) => p.type === "instagram") || mockInstagramPosts;
   const tiktokPosts = posts?.filter((p) => p.type === "tiktok") || mockTikTokPosts;
+  
+  const showInstagram = !showOnly || showOnly === "instagram";
+  const showTikTok = !showOnly || showOnly === "tiktok";
 
   const handleShare = async (url: string) => {
     if (navigator.share) {
@@ -56,10 +60,10 @@ export function SocialWall({ posts, mode = "static" }: SocialWallProps) {
   };
 
   return (
-    <section className="py-16 bg-[#0B0B0C]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Instagram Section */}
-        <div className="mb-16">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Instagram Section */}
+      {showInstagram && (
+        <div className={showTikTok ? "mb-16" : ""}>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-4 text-center">
             Latest from Instagram
           </h2>
@@ -125,8 +129,10 @@ export function SocialWall({ posts, mode = "static" }: SocialWallProps) {
             ))}
           </div>
         </div>
+      )}
 
-        {/* TikTok Section */}
+      {/* TikTok Section */}
+      {showTikTok && (
         <div>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-4 text-center">
             Latest from TikTok
@@ -198,8 +204,8 @@ export function SocialWall({ posts, mode = "static" }: SocialWallProps) {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      )}
+    </div>
   );
 }
 

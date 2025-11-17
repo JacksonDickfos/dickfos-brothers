@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SITE } from "@/lib/siteConfig";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,17 +36,15 @@ export function Header() {
             About Us
           </a>
           <a
-            href={SITE.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#instagram"
+            onClick={(e) => handleNavClick(e, "#instagram")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
           >
             Instagram
           </a>
           <a
-            href={SITE.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#tiktok"
+            onClick={(e) => handleNavClick(e, "#tiktok")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
           >
             TikTok
@@ -96,17 +93,15 @@ export function Header() {
                 About Us
               </a>
               <a
-                href={SITE.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#instagram"
+                onClick={(e) => handleNavClick(e, "#instagram")}
                 className="text-sm font-medium"
               >
                 Instagram
               </a>
               <a
-                href={SITE.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#tiktok"
+                onClick={(e) => handleNavClick(e, "#tiktok")}
                 className="text-sm font-medium"
               >
                 TikTok

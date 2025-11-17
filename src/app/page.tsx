@@ -79,10 +79,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Social Wall Section */}
-        <section id="social" className="py-16 bg-[#111215] scroll-mt-20">
+        {/* Instagram Section */}
+        <section id="instagram" className="py-16 bg-[#111215] scroll-mt-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SocialWall mode="static" />
+            <SocialWall mode="static" showOnly="instagram" />
+          </div>
+        </section>
+
+        {/* TikTok Section */}
+        <section id="tiktok" className="py-16 bg-[#0B0B0C] scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SocialWall mode="static" showOnly="tiktok" />
           </div>
         </section>
 
