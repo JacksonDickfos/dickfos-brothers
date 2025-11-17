@@ -56,15 +56,6 @@ export default function HomePage() {
         {/* About Section */}
         <section id="about" className="py-16 bg-[#0B0B0C] scroll-mt-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-3">About Us</p>
-              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
-                Two Brothers. One Vision.
-              </h2>
-              <p className="text-lg text-[#c3c3d1]">
-                We turn ideas into ventures, and ventures into movements.
-              </p>
-            </div>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-end md:text-right">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none">
