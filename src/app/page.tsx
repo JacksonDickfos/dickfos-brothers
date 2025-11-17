@@ -48,7 +48,7 @@ export default function HomePage() {
               Dickfos Brothers
             </h1>
             <p className="text-xl text-[#a1a1aa] text-center max-w-2xl">
-              Two brothers who look nothing alike 🙋🏾‍♂️🙆🏼‍♂️
+              "Two brothers who look nothing alike" 🙋🏾‍♂️🙆🏼‍♂️
             </p>
           </div>
         </section>
