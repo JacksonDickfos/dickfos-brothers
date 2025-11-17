@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 
-export function ContactForm() {
+type InquiryType = "sponsorship" | "collaboration" | "media";
+
+interface ContactFormProps {
+  inquiryType: InquiryType;
+}
+
+export function ContactForm({ inquiryType }: ContactFormProps) {
   const [formData, setFormData] = useState({
     email: "",
     message: "",
-    inquiryType: "sponsorship",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -18,12 +23,12 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, inquiryType }),
       });
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ email: "", message: "", inquiryType: "sponsorship" });
+        setFormData({ email: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -34,22 +39,9 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
-        <label htmlFor="inquiryType" className="block text-sm font-medium mb-2">
-          Inquiry Type
-        </label>
-        <select
-          id="inquiryType"
-          value={formData.inquiryType}
-          onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-          className="w-full rounded-lg bg-[#111215] border border-[#1A1B1F] px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#6EE7F9]"
-        >
-          <option value="sponsorship">Sponsorship</option>
-          <option value="collaboration">Collaboration</option>
-          <option value="media">Media Request</option>
-        </select>
-      </div>
-
+      <p className="text-sm text-[#a1a1aa]">
+        Inquiry type: <span className="text-white capitalize">{inquiryType}</span>
+      </p>
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
           Email

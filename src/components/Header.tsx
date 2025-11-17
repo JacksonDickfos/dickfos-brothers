@@ -50,11 +50,11 @@ export function Header() {
             Social
           </a>
           <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "#contact")}
+            href="#work"
+            onClick={(e) => handleNavClick(e, "#work")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
           >
-            Contact
+            Work
           </a>
         </div>
 
@@ -107,11 +107,11 @@ export function Header() {
                 Social
               </a>
               <a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, "#contact")}
+                href="#work"
+                onClick={(e) => handleNavClick(e, "#work")}
                 className="text-sm font-medium"
               >
-                Contact
+                Work
               </a>
             </div>
           </motion.div>
