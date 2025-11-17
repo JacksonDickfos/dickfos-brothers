@@ -38,10 +38,11 @@ export function ContactForm({ inquiryType }: ContactFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-[#a1a1aa]">
-        Inquiry type: <span className="text-white capitalize">{inquiryType}</span>
-      </p>
+    <form onSubmit={handleSubmit} className="space-y-6 text-left">
+      <div className="text-center">
+        <p className="text-xs uppercase tracking-[0.4em] text-[#6EE7F9]/80 mb-2">Inquiry Type</p>
+        <p className="text-2xl font-heading text-white capitalize">{inquiryType}</p>
+      </div>
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
           Email

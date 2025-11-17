@@ -47,7 +47,10 @@ export function WorkWithUsSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 mb-12">
+        <p className="text-center text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-6">
+          Select Your Inquiry Type
+        </p>
+        <div className="grid gap-6 md:grid-cols-3 mb-12" role="radiogroup" aria-label="Select inquiry type">
           {OPTIONS.map((option) => {
             const isActive = option.value === selected;
             return (
@@ -55,10 +58,11 @@ export function WorkWithUsSection() {
                 key={option.value}
                 type="button"
                 onClick={() => setSelected(option.value)}
-                className={`rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center transition-all ${
+                role="radio"
+                aria-checked={isActive}
+                className={`rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center transition-all cursor-pointer hover:border-[#6EE7F9]/60 hover:shadow-[0_25px_60px_rgba(110,231,249,0.2)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6EE7F9] ${
                   isActive ? "border-[#6EE7F9] shadow-[0_25px_60px_rgba(110,231,249,0.25)]" : ""
                 }`}
-                aria-pressed={isActive}
               >
                 <div className="text-4xl mb-6">{option.emoji}</div>
                 <h3 className="text-2xl font-heading font-semibold text-white mb-3">
@@ -70,11 +74,7 @@ export function WorkWithUsSection() {
           })}
         </div>
 
-        <div className="rounded-3xl border border-[#1A1B1F] bg-[#0f0f11] p-10 shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
-          <div className="mb-8 text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-2">Message Us</p>
-            <h3 className="text-3xl font-heading font-semibold text-white">Collaborate with the Brothers</h3>
-          </div>
+        <div className="mx-auto max-w-3xl w-full">
           <ContactForm inquiryType={selected} />
         </div>
       </div>
