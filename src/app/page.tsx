@@ -57,7 +57,7 @@ export default function HomePage() {
         <section id="about" className="py-16 bg-[#0B0B0C] scroll-mt-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-end md:text-right">
+              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 flex flex-col items-center text-center md:items-end md:text-right transition-all hover:border-[#6EE7F9]">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none md:whitespace-nowrap">
                   Physio • Performance • Health • Lifestyle
                 </p>
@@ -66,7 +66,7 @@ export default function HomePage() {
                   The movement specialist. Turning bodies into machines and rehab into results.
                 </p>
               </div>
-              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-start md:text-left">
+              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 flex flex-col items-center text-center md:items-start md:text-left transition-all hover:border-[#6EE7F9]">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none md:whitespace-nowrap">
                   Private Equity • Business • Tech • Finance
                 </p>
