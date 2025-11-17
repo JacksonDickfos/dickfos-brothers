@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SITE } from "@/lib/siteConfig";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,28 +34,30 @@ export function Header() {
             onClick={(e) => handleNavClick(e, "#about")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
           >
-            About
+            About Us
+          </a>
+          <a
+            href={SITE.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
+            Instagram
+          </a>
+          <a
+            href={SITE.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
+          >
+            TikTok
           </a>
           <a
             href="#work"
             onClick={(e) => handleNavClick(e, "#work")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
           >
-            Work
-          </a>
-          <a
-            href="#social"
-            onClick={(e) => handleNavClick(e, "#social")}
-            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
-          >
-            Social
-          </a>
-          <a
-            href="#work"
-            onClick={(e) => handleNavClick(e, "#work")}
-            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
-          >
-            Work
+            Work With Us
           </a>
         </div>
 
@@ -90,28 +93,30 @@ export function Header() {
                 onClick={(e) => handleNavClick(e, "#about")}
                 className="text-sm font-medium"
               >
-                About
+                About Us
+              </a>
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium"
+              >
+                Instagram
+              </a>
+              <a
+                href={SITE.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium"
+              >
+                TikTok
               </a>
               <a
                 href="#work"
                 onClick={(e) => handleNavClick(e, "#work")}
                 className="text-sm font-medium"
               >
-                Work
-              </a>
-              <a
-                href="#social"
-                onClick={(e) => handleNavClick(e, "#social")}
-                className="text-sm font-medium"
-              >
-                Social
-              </a>
-              <a
-                href="#work"
-                onClick={(e) => handleNavClick(e, "#work")}
-                className="text-sm font-medium"
-              >
-                Work
+                Work With Us
               </a>
             </div>
           </motion.div>
