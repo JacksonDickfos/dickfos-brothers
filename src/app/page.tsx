@@ -59,7 +59,7 @@ export default function HomePage() {
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-end md:text-right">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none md:whitespace-nowrap">
-                  Physio • Performance • Health • Lifestyle
+                  Performance • Health • Lifestyle
                 </p>
                 <h3 className="text-3xl font-heading font-bold text-white mb-4">Corb</h3>
                 <p className="text-[#c3c3d1] text-lg leading-relaxed max-w-sm">
@@ -68,7 +68,7 @@ export default function HomePage() {
               </div>
               <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center md:items-start md:text-left">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3 max-w-xs md:max-w-none md:whitespace-nowrap">
-                  Private Equity • Business Strategy • Tech • Finance
+                  Private Equity • Tech • Finance
                 </p>
                 <h3 className="text-3xl font-heading font-bold text-white mb-4">Jack</h3>
                 <p className="text-[#c3c3d1] text-lg leading-relaxed max-w-sm">
