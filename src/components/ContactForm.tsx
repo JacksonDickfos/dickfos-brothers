@@ -74,7 +74,7 @@ export function ContactForm({ inquiryType }: ContactFormProps) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-full bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90 disabled:opacity-50"
+        className="w-full rounded-lg bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90 disabled:opacity-50"
       >
         {status === "loading" ? "Submitting..." : status === "success" ? "Submitted!" : "Submit Request"}
       </button>
