@@ -40,7 +40,7 @@ export function ContactForm({ inquiryType }: ContactFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 text-left">
       <div className="text-center">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#6EE7F9]/80 mb-2">Inquiry Type</p>
+        <p className="text-xs uppercase tracking-[0.4em] text-[#6EE7F9]/80 mb-2">Request Type</p>
         <p className="text-2xl font-heading text-white capitalize">{inquiryType}</p>
       </div>
       <div>
@@ -76,7 +76,7 @@ export function ContactForm({ inquiryType }: ContactFormProps) {
         disabled={status === "loading"}
         className="w-full rounded-full bg-[#6EE7F9] px-6 py-3 text-[#0B0B0C] font-semibold transition-all hover:bg-[#6EE7F9]/90 disabled:opacity-50"
       >
-        {status === "loading" ? "Sending..." : status === "success" ? "Sent!" : "Send Message"}
+        {status === "loading" ? "Submitting..." : status === "success" ? "Submitted!" : "Submit Request"}
       </button>
 
       {status === "success" && (

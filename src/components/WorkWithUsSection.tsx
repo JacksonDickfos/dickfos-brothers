@@ -44,9 +44,9 @@ export function WorkWithUsSection() {
         </div>
 
         <p className="text-center text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-6">
-          Select Your Inquiry Type
+          Select Your Request
         </p>
-        <div className="grid gap-6 md:grid-cols-3 mb-12" role="radiogroup" aria-label="Select inquiry type">
+        <div className="grid gap-6 md:grid-cols-3 mb-12" role="radiogroup" aria-label="Select request type">
           {OPTIONS.map((option) => {
             const isActive = option.value === selected;
             return (
@@ -70,7 +70,7 @@ export function WorkWithUsSection() {
           })}
         </div>
 
-        <div className="mx-auto max-w-3xl w-full">
+        <div className="mx-auto max-w-xl w-full">
           <ContactForm inquiryType={selected} />
         </div>
       </div>
