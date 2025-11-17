@@ -110,30 +110,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Gallery Section */}
-        <section id="gallery" className="py-16 bg-[#0B0B0C] scroll-mt-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-center">
-              Gallery
-            </h2>
-            <p className="text-center text-[#a1a1aa] mb-12 max-w-2xl mx-auto">
-              Featured submissions from our competitions and social media content.
-            </p>
-
-            {/* Placeholder grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[...Array(12)].map((_, i) => (
-                <div
-                  key={i}
-                  className="aspect-square rounded-lg bg-[#111215] border border-[#1A1B1F] flex items-center justify-center text-[#a1a1aa] text-sm hover:border-[#6EE7F9] transition-colors"
-                >
-                  Gallery Item {i + 1}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Social Wall Section */}
         <section id="social" className="py-16 bg-[#111215] scroll-mt-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

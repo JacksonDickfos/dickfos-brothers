@@ -36,13 +36,6 @@ export function Header() {
             Competitions
           </a>
           <a
-            href="#gallery"
-            onClick={(e) => handleNavClick(e, "#gallery")}
-            className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
-          >
-            Gallery
-          </a>
-          <a
             href="#newsletter"
             onClick={(e) => handleNavClick(e, "#newsletter")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
@@ -91,13 +84,6 @@ export function Header() {
                 className="text-sm font-medium"
               >
                 Competitions
-              </a>
-              <a
-                href="#gallery"
-                onClick={(e) => handleNavClick(e, "#gallery")}
-                className="text-sm font-medium"
-              >
-                Gallery
               </a>
               <a
                 href="#newsletter"
