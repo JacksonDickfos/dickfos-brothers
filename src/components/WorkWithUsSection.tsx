@@ -38,13 +38,9 @@ export function WorkWithUsSection() {
     <section id="work" className="py-16 bg-[#0B0B0C] scroll-mt-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-3">Work With Us</p>
           <h2 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
             Work With Us
           </h2>
-          <p className="text-lg text-[#c3c3d1]">
-            Tell us how you'd like to collaborate and we'll make it happen.
-          </p>
         </div>
 
         <p className="text-center text-sm uppercase tracking-[0.3em] text-[#6EE7F9]/80 mb-6">
