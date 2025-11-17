@@ -56,12 +56,6 @@ export default function HomePage() {
         {/* Social Wall Section */}
         <section id="social" className="py-16 bg-[#111215] scroll-mt-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-center">
-              Follow Our Journey
-            </h2>
-            <p className="text-center text-[#a1a1aa] mb-12 max-w-2xl mx-auto">
-              See our latest content on Instagram and TikTok
-            </p>
             <SocialWall mode="static" />
           </div>
         </section>
