@@ -29,11 +29,11 @@ export function Header() {
             Home
           </a>
           <a
-            href="#competitions"
-            onClick={(e) => handleNavClick(e, "#competitions")}
+            href="#social"
+            onClick={(e) => handleNavClick(e, "#social")}
             className="text-sm font-medium transition-colors hover:text-[#6EE7F9]"
           >
-            Competitions
+            Social
           </a>
           <a
             href="#contact"
@@ -72,11 +72,11 @@ export function Header() {
                 Home
               </a>
               <a
-                href="#competitions"
-                onClick={(e) => handleNavClick(e, "#competitions")}
+                href="#social"
+                onClick={(e) => handleNavClick(e, "#social")}
                 className="text-sm font-medium"
               >
-                Competitions
+                Social
               </a>
               <a
                 href="#contact"
