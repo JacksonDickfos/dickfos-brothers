@@ -66,21 +66,21 @@ export default function HomePage() {
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-end text-right">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3">
                   Physio • Performance • Health • Lifestyle
                 </p>
                 <h3 className="text-3xl font-heading font-bold text-white mb-4">Corb</h3>
-                <p className="text-[#c3c3d1] text-lg leading-relaxed">
+                <p className="text-[#c3c3d1] text-lg leading-relaxed max-w-sm">
                   The movement specialist. Turning bodies into machines and rehab into results.
                 </p>
               </div>
-              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="rounded-3xl border border-[#1A1B1F] bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-start text-left">
                 <p className="text-sm uppercase tracking-[0.2em] text-[#6EE7F9]/70 mb-3">
                   Private Equity • Business Strategy • Tech • Finance
                 </p>
                 <h3 className="text-3xl font-heading font-bold text-white mb-4">Jack</h3>
-                <p className="text-[#c3c3d1] text-lg leading-relaxed">
+                <p className="text-[#c3c3d1] text-lg leading-relaxed max-w-sm">
                   The strategist. Building businesses that matter and tech that moves markets.
                 </p>
               </div>
