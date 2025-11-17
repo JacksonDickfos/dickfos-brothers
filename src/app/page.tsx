@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SocialWall } from "@/components/SocialWall";
 import { WorkWithUsSection } from "@/components/WorkWithUsSection";
+import { ScrollToWorkButton } from "@/components/ScrollToWorkButton";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -47,9 +48,11 @@ export default function HomePage() {
             <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-4 text-center">
               Dickfos Brothers
             </h1>
-            <p className="text-xl text-[#a1a1aa] text-center max-w-2xl">
+            <p className="text-xl text-[#a1a1aa] text-center max-w-2xl mb-8">
               "Two brothers who look nothing alike" 🙋🏾‍♂️🙆🏼‍♂️
             </p>
+            {/* CTA Button */}
+            <ScrollToWorkButton />
           </div>
         </section>
 
