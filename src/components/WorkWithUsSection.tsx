@@ -56,11 +56,20 @@ export function WorkWithUsSection() {
                 onClick={() => setSelected(option.value)}
                 role="radio"
                 aria-checked={isActive}
-                className={`rounded-3xl border-2 bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 text-center flex flex-col items-center transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6EE7F9] ${
-                  isActive 
-                    ? "border-[#6EE7F9]" 
-                    : "border-[#1A1B1F] hover:border-[#6EE7F9]"
-                }`}
+                className="rounded-3xl border-2 bg-gradient-to-br from-[#0f172a] via-[#0c1220] to-[#090c16] p-8 text-center flex flex-col items-center transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6EE7F9]"
+                style={{
+                  borderColor: isActive ? '#6EE7F9' : '#1A1B1F'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.borderColor = '#6EE7F9';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.borderColor = '#1A1B1F';
+                  }
+                }}
               >
                 <div className="text-4xl mb-6">{option.emoji}</div>
                 <h3 className="text-2xl font-heading font-semibold text-white mb-3">
