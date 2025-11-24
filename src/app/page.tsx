@@ -4,6 +4,7 @@ import { SocialWall } from "@/components/SocialWall";
 import { WorkWithUsSection } from "@/components/WorkWithUsSection";
 import { ScrollToWorkButton } from "@/components/ScrollToWorkButton";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
+import { FloatingImageGallery } from "@/components/FloatingImageGallery";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -26,6 +27,7 @@ export default function HomePage() {
         {/* Hero Section with Circular Logo */}
         <section id="home" className="relative flex min-h-[90vh] items-center justify-center py-20 px-4 scroll-mt-20 overflow-hidden">
           <ParticleNetwork />
+          <FloatingImageGallery />
           <div className="relative z-10 flex flex-col items-center">
             {/* Circular Logo with Gradient Border */}
             <div className="relative mb-8">
