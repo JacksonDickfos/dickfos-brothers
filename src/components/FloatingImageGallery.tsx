@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { heroImageUrls } from "@/data/heroImages";
 
 interface FloatingImage {
@@ -190,14 +189,17 @@ export function FloatingImageGallery() {
             willChange: "transform",
           }}
         >
-          <div className="relative w-full h-full rounded-lg overflow-hidden border border-[#1A1B1F]/50 shadow-lg">
-            <Image
+          <div className="relative w-full h-full rounded-lg overflow-hidden border border-[#1A1B1F]/50 shadow-lg bg-[#111215]">
+            <img
               src={image.url}
-              alt={`Story ${image.id + 1}`}
-              fill
-              className="object-cover"
-              sizes={`${image.size}px`}
-              unoptimized
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+              onError={(e) => {
+                // Hide the image if it fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
             />
           </div>
         </div>

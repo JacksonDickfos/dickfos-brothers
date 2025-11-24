@@ -10,6 +10,13 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
   },
   // Disable Turbopack for production builds to avoid dependency tracking issues
   webpack: (config, { isServer }) => {

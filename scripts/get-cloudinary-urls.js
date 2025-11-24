@@ -37,13 +37,17 @@ async function getAllImageUrls() {
     
     console.log(`\nTotal images found: ${allResources.length}`);
     
-    // Extract URLs
+    // Extract URLs - generate clean URLs without extra query params
     const urls = allResources.map(resource => {
-      // Get the secure URL
-      return cloudinary.url(resource.public_id, {
+      // Get the secure URL with explicit format
+      const url = cloudinary.url(resource.public_id, {
         secure: true,
         resource_type: 'image',
+        fetch_format: 'auto',
+        quality: 'auto',
       });
+      // Remove any query parameters that might cause issues
+      return url.split('?')[0];
     });
     
     // Generate the TypeScript array format
