@@ -11,8 +11,6 @@ interface FloatingImage {
   vx: number; // velocity x
   vy: number; // velocity y
   size: number; // random size between min and max
-  rotation: number;
-  rotationSpeed: number;
 }
 
 const MIN_SIZE = 60; // minimum image size in pixels
@@ -46,8 +44,6 @@ export function FloatingImageGallery() {
       vx: (Math.random() - 0.5) * MAX_VELOCITY,
       vy: (Math.random() - 0.5) * MAX_VELOCITY,
       size: MIN_SIZE + Math.random() * (MAX_SIZE - MIN_SIZE),
-      rotation: Math.random() * 360,
-      rotationSpeed: (Math.random() - 0.5) * 2, // degrees per frame
     }));
 
     setImages(initialImages);
@@ -65,7 +61,6 @@ export function FloatingImageGallery() {
         // Update position
         image.x += image.vx;
         image.y += image.vy;
-        image.rotation += image.rotationSpeed;
 
         // Bounce off edges
         if (image.x <= 0 || image.x + image.size >= containerWidth) {
@@ -129,7 +124,6 @@ export function FloatingImageGallery() {
         if (element) {
           element.style.left = `${image.x}px`;
           element.style.top = `${image.y}px`;
-          element.style.transform = `rotate(${image.rotation}deg)`;
         }
       });
 
@@ -185,7 +179,6 @@ export function FloatingImageGallery() {
             top: `${image.y}px`,
             width: `${image.size}px`,
             height: `${image.size}px`,
-            transform: `rotate(${image.rotation}deg)`,
             willChange: "transform",
           }}
         >
