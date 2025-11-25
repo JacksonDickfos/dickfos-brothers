@@ -6,7 +6,6 @@ import { ScrollToWorkButton } from "@/components/ScrollToWorkButton";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 import { FloatingImageGallery } from "@/components/FloatingImageGallery";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Dickfos Brothers | Brothers who look nothing alike",
@@ -29,25 +28,6 @@ export default function HomePage() {
           <ParticleNetwork />
           <FloatingImageGallery />
           <div className="relative z-10 flex flex-col items-center">
-            {/* Circular Logo with Gradient Border */}
-            <div className="relative mb-8">
-              <div className="logo-gradient-border rounded-full p-[6px]">
-                <div className="rounded-full bg-[#0B0B0C] p-[4px]">
-                  <div className="relative h-[512px] w-[512px] rounded-full overflow-hidden bg-[#111215]">
-                    <Image
-                      src="/images/logo.jpeg"
-                      alt="Dickfos Brothers"
-                      width={512}
-                      height={512}
-                      className="object-cover rounded-full w-full h-full"
-                      priority
-                      unoptimized
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            
             {/* Title */}
             <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-4 text-center">
               Dickfos Brothers
