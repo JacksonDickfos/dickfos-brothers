@@ -13,9 +13,9 @@ export function ScrollToWorkButton() {
     <a
       href="#work"
       onClick={handleClick}
-      className="inline-flex items-center rounded-lg bg-[#6EE7F9] px-8 py-4 text-[#0B0B0C] font-semibold text-lg transition-all hover:bg-[#6EE7F9]/90 hover:scale-105"
+      className="work-with-us-button inline-flex items-center rounded-lg px-8 py-4 text-white font-semibold text-lg transition-all hover:scale-105 relative z-10"
     >
-      Work With Us
+      <span className="relative z-10">Work With Us</span>
     </a>
   );
 }

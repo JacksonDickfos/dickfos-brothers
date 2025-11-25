@@ -88,6 +88,45 @@ h1, h2, h3, h4, h5, h6 {
       animation: rotate-border 4s linear infinite, pulse-border 2s ease-in-out infinite;
     }
 
+    /* Work With Us button gradient and sheen animation */
+    @keyframes sheen {
+      0% {
+        transform: translateX(-150%) translateY(-150%) rotate(45deg);
+      }
+      50% {
+        transform: translateX(150%) translateY(150%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(-150%) translateY(-150%) rotate(45deg);
+      }
+    }
+
+    .work-with-us-button {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-with-us-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+      );
+      animation: sheen 3s ease-in-out infinite;
+    }
+
+    .work-with-us-button:hover {
+      background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #DB2777 100%);
+    }
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *,
@@ -101,6 +140,9 @@ h1, h2, h3, h4, h5, h6 {
         scroll-behavior: auto;
       }
       .logo-gradient-border {
+        animation: none !important;
+      }
+      .work-with-us-button::before {
         animation: none !important;
       }
     }
