@@ -27,16 +27,18 @@ export default function HomePage() {
         <section id="home" className="relative flex min-h-[90vh] items-center justify-center py-20 px-4 scroll-mt-20 overflow-hidden">
           <ParticleNetwork />
           <FloatingImageGallery />
-          <div className="relative z-10 flex flex-col items-center">
+          <div id="hero-content" className="relative z-10 flex flex-col items-center">
             {/* Title */}
-            <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-4 text-center">
+            <h1 id="hero-title" className="font-heading text-5xl md:text-6xl font-bold text-white mb-4 text-center">
               Dickfos Brothers
             </h1>
-            <p className="text-xl text-[#a1a1aa] text-center max-w-2xl mb-8">
+            <p id="hero-subtitle" className="text-xl text-[#a1a1aa] text-center max-w-2xl mb-8">
               "Two brothers who look nothing alike" 🙋🏾‍♂️🙆🏼‍♂️
             </p>
             {/* CTA Button */}
-            <ScrollToWorkButton />
+            <div id="hero-button">
+              <ScrollToWorkButton />
+            </div>
           </div>
         </section>
 
